@@ -1,0 +1,58 @@
+// ezSeal.idl : IDL source for ezSeal.dll
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (ezSeal.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+	[
+		object,
+		uuid(D0D38B3B-0A50-46E6-A58F-1BE775CA095A),
+		dual,
+		helpstring("ImySeal Interface"),
+		pointer_default(unique)
+	]
+	interface ImySeal : IDispatch
+	{
+	};
+	
+	[
+		object,
+		uuid(A94858F9-F53F-4A91-B191-F5817FDF5E4C),
+		dual,
+		helpstring("ICreateSeal Interface"),
+		pointer_default(unique)
+	]
+	interface ICreateSeal : IDispatch
+	{
+	};
+
+[
+	uuid(9D06D9E9-FC53-4729-85D8-9CD909DC4452),
+	version(1.0),
+	helpstring("ezSeal 1.0 Type Library")
+]
+library EZSEALLib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+	[
+		uuid(E548AEC4-1B4E-4ED3-BD5D-DBF491334C02),
+		helpstring("mySeal Class")
+	]
+	coclass mySeal
+	{
+		[default] interface ImySeal;
+	};
+	
+	[
+		uuid(83027F81-FCDB-4E61-BFA7-A3048BBAD3D8),
+		helpstring("CreateSeal Class")
+	]
+	coclass CreateSeal
+	{
+		[default] interface ICreateSeal;
+	};
+};

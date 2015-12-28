@@ -1,0 +1,51 @@
+HKCR
+{
+	EzSeal.mySeal.1 = s 'mySeal Class'
+	{
+		CLSID = s '{E548AEC4-1B4E-4ED3-BD5D-DBF491334C02}'
+	}
+	EzSeal.mySeal = s 'mySeal Class'
+	{
+		CLSID = s '{E548AEC4-1B4E-4ED3-BD5D-DBF491334C02}'
+		CurVer = s 'EzSeal.mySeal.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {E548AEC4-1B4E-4ED3-BD5D-DBF491334C02} = s 'mySeal Class'
+		{
+			ProgID = s 'EzSeal.mySeal.1'
+			VersionIndependentProgID = s 'EzSeal.mySeal'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			'TypeLib' = s '{9D06D9E9-FC53-4729-85D8-9CD909DC4452}'
+		}
+	}
+}
+HKCU
+    {
+      Software
+       {
+        Microsoft
+        {
+          Office
+             { 
+            Word
+               {
+             Addins
+               {
+			'ezSeal.mySeal'
+            {
+              val FriendlyName = s 'SecSign Addin'
+              val Description = s 'SecSign Addin'
+              val LoadBehavior = d '00000003'
+              val CommandLineSafe = d '00000001'
+            }
+               }
+             }
+          }
+       }
+   }
+}
